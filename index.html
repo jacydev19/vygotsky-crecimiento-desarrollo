@@ -73,7 +73,11 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 1.2rem);
       background-color: var(--paper);
+    }
+    section[id] {
+      scroll-margin-top: calc(var(--header-height) + 1.2rem);
     }
 
     body {
@@ -1071,24 +1075,79 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      gap: 1.2rem;
     }
     .apa-item {
-      padding-left: 2rem;
-      text-indent: -2rem;
+      background: var(--paper-soft);
+      border: 1px solid var(--line-subtle);
+      border-left: 4px solid var(--sun);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem 1.4rem;
+      text-indent: 0;
+      transition: all 0.2s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .apa-item:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+    }
+    .apa-citation-text {
+      color: var(--ink);
       font-size: 0.92rem;
-      line-height: 1.65;
-      color: var(--ink-soft);
-      border-bottom: 1px dashed var(--line-subtle);
-      padding-bottom: 0.85rem;
-      word-break: break-word;
+      line-height: 1.68;
+      text-indent: 0;
     }
-    .apa-item a {
-      color: var(--sun);
-      word-break: break-all;
+    .apa-citation-text strong {
+      color: var(--ink);
+      font-weight: 700;
     }
-    .apa-item a:hover {
-      text-decoration: underline;
+    .apa-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      text-indent: 0;
+      margin-top: 0.2rem;
+    }
+    .btn-pdf-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.42rem 0.95rem;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: all 0.2s var(--ease);
+      cursor: pointer;
+    }
+    .btn-pdf-redalyc {
+      background: #fff5eb;
+      color: #b25e00;
+      border: 1px solid #ffd8a8;
+    }
+    .btn-pdf-redalyc:hover {
+      background: #ff922b;
+      color: #ffffff;
+      border-color: #ff922b;
+      box-shadow: 0 4px 14px rgba(255, 146, 43, 0.35);
+    }
+    .btn-pdf-scielo {
+      background: #ebfbee;
+      color: #2b8a3e;
+      border: 1px solid #b2f2bb;
+    }
+    .btn-pdf-scielo:hover {
+      background: #40c057;
+      color: #ffffff;
+      border-color: #40c057;
+      box-shadow: 0 4px 14px rgba(64, 192, 87, 0.35);
     }
 
     /* ============================================================
@@ -2381,114 +2440,89 @@
         <div class="apa-references-box">
           <ul class="apa-list">
             <li class="apa-item">
-              <div>
+              <div class="apa-citation-text">
                 <strong>Chaves Salas, A. L. (2001).</strong> Implicaciones educativas de la teoría sociocultural de Vigotsky. <em>Revista Educación</em>, 25(2), 59-65.
               </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://www.redalyc.org/articulo.oa?id=44025206" target="_blank" rel="noopener" class="pill-tag pill-gold" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-file-pdf"></i> Ver Artículo en Redalyc
-                </a>
-                <a href="https://scholar.google.com/scholar?q=Chaves+Salas+Implicaciones+educativas+de+la+teoria+sociocultural+de+Vigotsky" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/440/44025206.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
                 </a>
               </div>
             </li>
+
             <li class="apa-item">
-              <div>
+              <div class="apa-citation-text">
                 <strong>Radford, L. (2006).</strong> Elementos de una teoría cultural de la objetivación. <em>Revista Latinoamericana de Investigación en Matemática Educativa (RELIME)</em>, Número Especial, 103-129.
               </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://www.redalyc.org/articulo.oa?id=33509906" target="_blank" rel="noopener" class="pill-tag pill-gold" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-file-pdf"></i> Ver Artículo en Redalyc
-                </a>
-                <a href="https://scholar.google.com/scholar?q=Radford+Elementos+de+una+teoria+cultural+de+la+objetivacion" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/335/33509906.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
                 </a>
               </div>
             </li>
+
             <li class="apa-item">
-              <div>
+              <div class="apa-citation-text">
                 <strong>Duval, R. (2006).</strong> Un análisis cognitivo de problemas de comprensión en el aprendizaje de las matemáticas. <em>Revista Latinoamericana de Investigación en Matemática Educativa (RELIME)</em>, 9(2), 267-294.
               </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1665-24362006000200004" target="_blank" rel="noopener" class="pill-tag pill-pine" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-book-open"></i> Ver Texto Completo en SciELO
-                </a>
-                <a href="https://scholar.google.com/scholar?q=Duval+analisis+cognitivo+problemas+comprension+aprendizaje+matematicas" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+              <div class="apa-actions">
+                <a href="https://www.scielo.org.mx/pdf/relime/v9n2/v9n2a4.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-scielo">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (SciELO)
                 </a>
               </div>
             </li>
+
             <li class="apa-item">
-              <div>
+              <div class="apa-citation-text">
+                <strong>Carrera, B., & Mazzarella, C. (2001).</strong> Vygotsky: enfoque sociocultural. <em>Educere: Revista Venezolana de Educación</em>, 5(13), 41-44.
+              </div>
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/356/35601309.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
+                </a>
+              </div>
+            </li>
+
+            <li class="apa-item">
+              <div class="apa-citation-text">
+                <strong>Hernández Rojas, G. (1999).</strong> La zona de desarrollo próximo en la enseñanza escolar: de la teoría a la práctica. <em>Educere: Revista Venezolana de Educación</em>, 3(6), 28-36.
+              </div>
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/356/35601304.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
+                </a>
+              </div>
+            </li>
+
+            <li class="apa-item">
+              <div class="apa-citation-text">
                 <strong>Luchetti, E. L. (2003).</strong> El concepto de zona de desarrollo próximo. <em>Revista Pensamiento Educativo</em>, 32(1), 180-194.
               </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://www.redalyc.org/articulo.oa?id=173514130004" target="_blank" rel="noopener" class="pill-tag pill-gold" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-file-pdf"></i> Ver Artículo en Redalyc
-                </a>
-                <a href="https://scholar.google.com/scholar?q=Luchetti+concepto+zona+desarrollo+proximo" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/1735/173514130004.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
                 </a>
               </div>
             </li>
+
             <li class="apa-item">
-              <div>
-                <strong>Vygotsky, L. S. (1934/1993).</strong> <em>Pensamiento y lenguaje</em> (Obras Escogidas, Tomo II). Editorial Visor.
+              <div class="apa-citation-text">
+                <strong>Cordero, F. (2006).</strong> Socioepistemología y representación: algunos ejemplos en el aprendizaje matemático. <em>Revista Latinoamericana de Investigación en Matemática Educativa (RELIME)</em>, Número Especial, 77-102.
               </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://scholar.google.com/scholar?q=Vygotsky+Pensamiento+y+lenguaje+Visor" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Ver en Google Scholar
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/335/33509905.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
                 </a>
               </div>
             </li>
+
             <li class="apa-item">
-              <div>
-                <strong>Vygotsky, L. S. (1979).</strong> <em>El desarrollo de los procesos psicológicos superiores</em>. Editorial Crítica / Grijalbo.
+              <div class="apa-citation-text">
+                <strong>Godino, J. D., Contreras, A., & Font, V. (2006).</strong> Análisis ontosemiótico de una lección sobre la suma y la resta: mediación semiótica y desarrollo conceptual. <em>Revista Latinoamericana de Investigación en Matemática Educativa (RELIME)</em>, Número Especial, 131-155.
               </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://scholar.google.com/scholar?q=Vygotsky+El+desarrollo+de+los+procesos+psicologicos+superiores+Critica" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Ver en Google Scholar
-                </a>
-              </div>
-            </li>
-            <li class="apa-item">
-              <div>
-                <strong>Vygotsky, L. S. (1931/1996).</strong> <em>Paidología del adolescente</em> (Obras Escogidas, Tomo IV). Editorial Visor.
-              </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://scholar.google.com/scholar?q=Vygotsky+Paidologia+del+adolescente+Obras+Escogidas" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Ver en Google Scholar
-                </a>
-              </div>
-            </li>
-            <li class="apa-item">
-              <div>
-                <strong>Wood, D., Bruner, J. S., & Ross, G. (1976).</strong> The role of tutoring in problem solving. <em>Journal of Child Psychology and Psychiatry</em>, 17(2), 89-100.
-              </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://scholar.google.com/scholar?q=Wood+Bruner+Ross+The+role+of+tutoring+in+problem+solving" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Ver en Google Scholar
-                </a>
-              </div>
-            </li>
-            <li class="apa-item">
-              <div>
-                <strong>Bartolini Bussi, M. G., & Mariotti, M. A. (2008).</strong> Semiotic mediation in the mathematics classroom: Artifacts and signs after a Vygotskian perspective. In <em>Handbook of international research in mathematics education</em> (pp. 746-783). Routledge.
-              </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://scholar.google.com/scholar?q=Bartolini+Bussi+Mariotti+Semiotic+mediation+mathematics+classroom" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Ver en Google Scholar
-                </a>
-              </div>
-            </li>
-            <li class="apa-item">
-              <div>
-                <strong>Sfard, A. (2008).</strong> <em>Thinking as communicating: Human development, the growth of discourses, and mathematizing</em>. Cambridge University Press.
-              </div>
-              <div style="margin-top: 0.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <a href="https://scholar.google.com/scholar?q=Sfard+Thinking+as+communicating+mathematizing" target="_blank" rel="noopener" class="pill-tag pill-slate" style="text-decoration: none; font-size: 0.72rem; display: inline-flex; align-items: center; gap: 0.35rem;">
-                  <i class="fa-solid fa-graduation-cap"></i> Ver en Google Scholar
+              <div class="apa-actions">
+                <a href="https://www.redalyc.org/pdf/335/33509907.pdf" target="_blank" rel="noopener" class="btn-pdf-direct btn-pdf-redalyc">
+                  <i class="fa-solid fa-file-pdf"></i> Ver / Descargar PDF Oficial (Redalyc)
                 </a>
               </div>
             </li>
@@ -2683,16 +2717,14 @@
 
     // 4. COPIAR CITAS APA AL PORTAPAPELES
     function copyAllCitations() {
-      const citations = `Chaves Salas, A. L. (2001). Implicaciones educativas de la teoría sociocultural de Vigotsky. Revista Educación, 25(2), 59-65. https://www.redalyc.org/articulo.oa?id=44025206
-Radford, L. (2006). Elementos de una teoría cultural de la objetivación. Revista Latinoamericana de Investigación en Matemática Educativa (RELIME), Número Especial, 103-129. https://www.redalyc.org/articulo.oa?id=33509906
-Duval, R. (2006). Un análisis cognitivo de problemas de comprensión en el aprendizaje de las matemáticas. Revista Latinoamericana de Investigación en Matemática Educativa (RELIME), 9(2), 267-294. https://www.scielo.org.mx/scielo.php?script=sci_arttext&pid=S1665-24362006000200004
-Luchetti, E. L. (2003). El concepto de zona de desarrollo próximo. Revista Pensamiento Educativo, 32(1), 180-194. https://www.redalyc.org/articulo.oa?id=173514130004
-Vygotsky, L. S. (1934/1993). Pensamiento y lenguaje (Obras Escogidas, Tomo II). Editorial Visor. https://scholar.google.com/scholar?q=Vygotsky+Pensamiento+y+lenguaje+Visor
-Vygotsky, L. S. (1979). El desarrollo de los procesos psicológicos superiores. Editorial Crítica / Grijalbo. https://scholar.google.com/scholar?q=Vygotsky+El+desarrollo+de+los+procesos+psicologicos+superiores+Critica
-Vygotsky, L. S. (1931/1996). Paidología del adolescente (Obras Escogidas, Tomo IV). Editorial Visor. https://scholar.google.com/scholar?q=Vygotsky+Paidologia+del+adolescente+Obras+Escogidas
-Wood, D., Bruner, J. S., & Ross, G. (1976). The role of tutoring in problem solving. Journal of Child Psychology and Psychiatry, 17(2), 89-100. https://scholar.google.com/scholar?q=Wood+Bruner+Ross+The+role+of+tutoring+in+problem+solving
-Bartolini Bussi, M. G., & Mariotti, M. A. (2008). Semiotic mediation in the mathematics classroom: Artifacts and signs after a Vygotskian perspective. In Handbook of international research in mathematics education (pp. 746-783). Routledge. https://scholar.google.com/scholar?q=Bartolini+Bussi+Mariotti+Semiotic+mediation+mathematics+classroom
-Sfard, A. (2008). Thinking as communicating: Human development, the growth of discourses, and mathematizing. Cambridge University Press. https://scholar.google.com/scholar?q=Sfard+Thinking+as+communicating+mathematizing`;
+      const citations = `Chaves Salas, A. L. (2001). Implicaciones educativas de la teoría sociocultural de Vigotsky. Revista Educación, 25(2), 59-65. https://www.redalyc.org/pdf/440/44025206.pdf
+Radford, L. (2006). Elementos de una teoría cultural de la objetivación. Revista Latinoamericana de Investigación en Matemática Educativa (RELIME), Número Especial, 103-129. https://www.redalyc.org/pdf/335/33509906.pdf
+Duval, R. (2006). Un análisis cognitivo de problemas de comprensión en el aprendizaje de las matemáticas. Revista Latinoamericana de Investigación en Matemática Educativa (RELIME), 9(2), 267-294. https://www.scielo.org.mx/pdf/relime/v9n2/v9n2a4.pdf
+Carrera, B., & Mazzarella, C. (2001). Vygotsky: enfoque sociocultural. Educere: Revista Venezolana de Educación, 5(13), 41-44. https://www.redalyc.org/pdf/356/35601309.pdf
+Hernández Rojas, G. (1999). La zona de desarrollo próximo en la enseñanza escolar: de la teoría a la práctica. Educere: Revista Venezolana de Educación, 3(6), 28-36. https://www.redalyc.org/pdf/356/35601304.pdf
+Luchetti, E. L. (2003). El concepto de zona de desarrollo próximo. Revista Pensamiento Educativo, 32(1), 180-194. https://www.redalyc.org/pdf/1735/173514130004.pdf
+Cordero, F. (2006). Socioepistemología y representación: algunos ejemplos en el aprendizaje matemático. Revista Latinoamericana de Investigación en Matemática Educativa (RELIME), Número Especial, 77-102. https://www.redalyc.org/pdf/335/33509905.pdf
+Godino, J. D., Contreras, A., & Font, V. (2006). Análisis ontosemiótico de una lección sobre la suma y la resta: mediación semiótica y desarrollo conceptual. Revista Latinoamericana de Investigación en Matemática Educativa (RELIME), Número Especial, 131-155. https://www.redalyc.org/pdf/335/33509907.pdf`;
 
       navigator.clipboard.writeText(citations).then(() => {
         alert("¡Referencias en formato APA 7 copiadas exitosamente al portapapeles!");
@@ -2714,15 +2746,6 @@ Sfard, A. (2008). Thinking as communicating: Human development, the growth of di
         navToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
       });
 
-      // Cerrar menú al hacer clic en cualquier enlace
-      siteNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          siteNav.classList.remove('is-open');
-          navToggle.setAttribute('aria-expanded', 'false');
-          navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        });
-      });
-
       // Cerrar al hacer clic fuera del menú
       document.addEventListener('click', (e) => {
         if (!siteNav.contains(e.target) && !navToggle.contains(e.target) && siteNav.classList.contains('is-open')) {
@@ -2733,12 +2756,49 @@ Sfard, A. (2008). Thinking as communicating: Human development, the growth of di
       });
     }
 
+    // 6. NAVEGACIÓN SUAVE UNIVERSAL PARA TODAS LAS ANCLAS (HEADER, ÍNDICE, FOOTER)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const headerEl = document.getElementById('header');
+          const headerHeight = headerEl ? headerEl.offsetHeight : 76;
+          const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 12);
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          // Actualizar estado en historial sin reload
+          if (history.pushState) {
+            history.pushState(null, null, targetId);
+          }
+
+          // Cerrar menú móvil si estuviera abierto
+          if (siteNav && siteNav.classList.contains('is-open')) {
+            siteNav.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          }
+        }
+      });
+    });
+
     // Scroll a anclas directas al cargar
     document.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash) {
         setTimeout(() => {
           const el = document.querySelector(window.location.hash);
-          if (el) el.scrollIntoView({ behavior: 'instant' });
+          if (el) {
+            const headerEl = document.getElementById('header');
+            const headerHeight = headerEl ? headerEl.offsetHeight : 76;
+            const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - (headerHeight + 12);
+            window.scrollTo({ top: targetPosition, behavior: 'instant' });
+          }
         }, 100);
       }
     });
